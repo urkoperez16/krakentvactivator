@@ -9,22 +9,21 @@ driver_path = 'YOUR PATH'
 def interact_with_buttons():
     driver = webdriver.Chrome(executable_path=driver_path)
     
-    url = 'https://www.listasiptvactualizadas.com/activar-kraken-tv.php?token=XGQNP8'
+    url = 'https://www.listasiptvactualizadas.com/activar-kraken-tv.php?token=YOUR TOKEN'
     driver.get(url)
     
     wait = WebDriverWait(driver, 15)
-    element = wait.until(EC.presence_of_element_located((By.ID, 'btnactiv_b9155cafda96f5c2')))
+    element = wait.until(EC.presence_of_element_located((By.ID, 'YOUR BOTTOM')))
 
-    button1 = driver.find_element(By.ID, 'btnactiv_b9155cafda96f5c2')
+    button1 = driver.find_element(By.ID, 'YOUR BOTTOM')
     button1.click()
 
     time.sleep(2)
 
-    # Realiza acciones (hacer clic en el segundo botón)
-    button2 = driver.find_element(By.ID, 'btnactiv_7da3fee9264186b1')
-    button2.click()
-
-    time.sleep(5)
+    # If you have 2 devices delete next #
+    #button2 = driver.find_element(By.ID, 'YOUR BOTTOM 2')
+    #button2.click()
+    #time.sleep(5)
 
     driver.quit()
 

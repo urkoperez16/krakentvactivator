@@ -4,37 +4,44 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
-# Ruta al controlador descargado
-driver_path = 'YOUR PATH'
+driver_path = 'YOR PATH'
 
 def interact_with_buttons():
-    # Configura las opciones del controlador
+
     chrome_options = Options()
 
-    # Inicializa el controlador
     driver = webdriver.Chrome(options=chrome_options)
 
-    # Abre la página
     url = 'https://listasiptvactualizadas.com/activar-kraken-tv.php?token=YOUR TOKEN'
     driver.get(url)
     
-    wait = WebDriverWait(driver, 30)
-    element = wait.until(EC.presence_of_element_located((By.ID, 'YOUR BUTTON ID')))
+    time.sleep(3)
+    
+    script = "document.querySelector('.fc-button.fc-cta-consent.fc-primary-button').click();"
+    driver.execute_script(script)
+
+    time.sleep(15)
 
     button1 = driver.find_element(By.ID, 'YOUR BUTTON ID')
     button1.click()
-
-    # Espera 5 segundos
-    time.sleep(5)
-
-    # If you have 2 devices delete #
-    #button2 = driver.find_element(By.ID, 'YOUR BUTTON ID')
-    #button2.click()
+    
+    print("✔ 1. Dispositivo Activado ✔")
+    
 
     time.sleep(2)
+    
+    # IF YOU HAVE 2 DEVICES DELETED THIS #
+    # button2 = driver.find_element(By.ID, 'YOUR SECOND BUTTON ID')
+    # button2.click()
+    
+    # print("✔ 2. Dispositivo Activado ✔")
+
+    # time.sleep(2)
 
     driver.quit()
+
 
 while True:
     interact_with_buttons()
